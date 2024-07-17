@@ -38,17 +38,16 @@ public void alert_2() throws InterruptedException {
 	Alert A=driver.switchTo().alert();
 	//Thread.sleep(3000);
 	driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+	String text=A.getText();
+	Assert.assertEquals( "Press a button!",text);
 	A.accept();
-	//String text=alert2.getText();
-	//Assert.assertEquals( "Press a button!",text);
-	//System.out.println("Assertion passed for first alert");
+	System.out.println("Assertion passed for first alert");
 	}
 @Test(enabled=true)
 public void alert_3() 
-{
-	driver.findElement(By.cssSelector("#promptBox")).click();
-	Alert A=driver.switchTo().alert();
-	A.accept();
-	
-}
+	{
+		driver.findElement(By.cssSelector("#promptBox")).click();
+		Alert A=driver.switchTo().alert();
+		A.accept();
+	}
 }
